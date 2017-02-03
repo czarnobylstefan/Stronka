@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Schroniska.Models.Schronisko>
+
+@{
+    ViewBag.Title = "Baza schronisk SQL";
+}
+
+<h2>Lista schronisk Sql</h2>
+
+<div id="my-carousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#my-carousel" data-slide-to="1"></li>
+        <li data-target="#my-carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img alt="First slide" src="~/Content/Obrazki/001.jpg">
+            <div class="carousel-caption">
+                <h3>Śmieszne schonisko</h3>
+                <p>Najlepsze schronisko</p>
+            </div>
+        </div>
+        <div class="item">
+            <img alt="Second slide" src="~/Content/Obrazki/002.jpg">
+            <div class="carousel-caption">
+                <h3>Nudne Schronisko</h3>
+                <p>Najgorsze schronisko</p>
+            </div>
+        </div>
+        <div class="item">
+            <img alt="Third slide" src="~/Content/Obrazki/003.jpg">
+            <div class="carousel-caption">
+                <h3>Jeszcze Śmieszniejsze Schronisko</h3>
+                <p>Dobre schronisko</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#my-carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#my-carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miejscowosc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ocena)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miejscowosc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ocena)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/Obrazki/001.jpg" />
+            <div class="caption">
+                <h3>Fajne schronisko</h3>
+                <p>Wrocław (9)</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/Obrazki/002.jpg" />
+            <div class="caption">
+                <h3>Słabe schronisko</h3>
+                <p>Poznań (3)</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/Obrazki/003.jpg" />
+            <div class="caption">
+                <h3>Jeszcze inne schronisko</h3>
+                <p>Kraków (7)</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model Schroniska.Models.Schronisko
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły</h2>
+<center>
+    <img width="1000px" src="@ViewBag.ImageSrc" />
+</center>
+<div>
+    <h4>Schronisko</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Miejscowosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miejscowosc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ocena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ocena)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div>
+    <h4>Recenzje</h4>
+@foreach (var item in ViewBag.Recenzja)
+{
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Recenzja użytkownika:
+        </dt>  
+        <dd>
+            @item.Opis
+        </dd>
+
+        <dt>
+            Ocena użytkownika:
+        </dt>
+        <dd>
+            @item.Ocena
+        </dd>
+
+    </dl>
+}
+</div>
